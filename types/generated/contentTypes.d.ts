@@ -362,39 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiExpenseExpense extends Schema.CollectionType {
-  collectionName: 'expenses';
-  info: {
-    singularName: 'expense';
-    pluralName: 'expenses';
-    displayName: 'Expense';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Expense: Attribute.String;
-    Amount: Attribute.Decimal;
-    Date: Attribute.DateTime;
-    Category: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::expense.expense',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::expense.expense',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -801,6 +768,75 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiExpenseExpense extends Schema.CollectionType {
+  collectionName: 'expenses';
+  info: {
+    singularName: 'expense';
+    pluralName: 'expenses';
+    displayName: 'Expense';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Expense: Attribute.String;
+    Amount: Attribute.Decimal;
+    Date: Attribute.DateTime;
+    Category: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::expense.expense',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::expense.expense',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiOrderOrder extends Schema.CollectionType {
+  collectionName: 'orders';
+  info: {
+    singularName: 'order';
+    pluralName: 'orders';
+    displayName: 'Order';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String;
+    OrderID: Attribute.String;
+    EstimateDate: Attribute.DateTime;
+    Progress: Attribute.Integer;
+    ClientName: Attribute.String;
+    Note: Attribute.String;
+    Display: Attribute.Boolean;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::order.order',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::order.order',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -811,7 +847,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::expense.expense': ApiExpenseExpense;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -820,6 +855,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::expense.expense': ApiExpenseExpense;
+      'api::order.order': ApiOrderOrder;
     }
   }
 }

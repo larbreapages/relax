@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "Order"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "OrderID": {
+      "type": "string"
+    },
+    "EstimateDate": {
+      "type": "datetime"
+    },
+    "Progress": {
+      "type": "integer"
+    },
+    "ClientName": {
+      "type": "string"
+    },
+    "Note": {
+      "type": "string"
+    },
+    "Display": {
+      "type": "boolean"
+    }
+  }
+}
