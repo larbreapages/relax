@@ -807,6 +807,7 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     singularName: 'order';
     pluralName: 'orders';
     displayName: 'Order';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -818,7 +819,6 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     Progress: Attribute.Integer;
     ClientName: Attribute.String;
     Note: Attribute.String;
-    Display: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
