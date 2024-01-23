@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "expenses",
+  "info": {
+    "singularName": "expense",
+    "pluralName": "expenses",
+    "displayName": "Expense"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Expense": {
+      "type": "string"
+    },
+    "Amount": {
+      "type": "decimal"
+    },
+    "Date": {
+      "type": "datetime"
+    },
+    "Category": {
+      "type": "string"
+    }
+  }
+}
