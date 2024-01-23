@@ -1,6 +1,6 @@
 # Relax
 
-Service d'auto-gestion clientèle pour auto-entrepreneurs.
+Service d'auto-gestion clientèle.
 
 ## 📦 Installation
 
