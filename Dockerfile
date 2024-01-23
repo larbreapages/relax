@@ -8,6 +8,8 @@ RUN yarn install
 
 RUN yarn add mysql
 
+RUN npm run build
+
 FROM gcr.io/distroless/nodejs:18
 
 COPY --from=build /app /app
