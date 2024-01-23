@@ -27,13 +27,13 @@
           <h1 class="text-3xl text-[#ad8d4d] font-['GoodVibrations']">L'arbre à Pages</h1>
         </center>
 
-        <div class="container mx-auto px-12 pt-10">
+        <div class="container mx-auto lg:px-12 pt-10">
             <table class="min-w-full divide-y divide-gray-300">
                 <thead>
                     <tr class="divide-x divide-gray-300">
                         <th class="py-3.5 pl-4 pr-4 text-left text-sm font-extrabold text-gray-900 sm:pl-0">Numéro de commande</th>
-                        <th class="px-4 py-3.5 text-left text-sm font-extrabold text-gray-900">Nom de la commande</th>
-                        <th class="px-4 py-3.5 text-left text-sm font-extrabold text-gray-900">Date de livraison estimée</th>
+                        <th class="px-4 py-3.5 text-left text-sm font-extrabold text-gray-900 hidden sm:table-cell">Nom de la commande</th>
+                        <th class="px-4 py-3.5 text-left text-sm font-extrabold text-gray-900 hidden sm:table-cell">Date de livraison estimée</th>
                         <th class="py-3.5 pl-4 pr-4 text-left text-sm font-extrabold text-gray-900 sm:pr-0">Progression</th>
                     </tr>
                 </thead>
@@ -46,7 +46,7 @@
 
             const frenchDate = (date) => (new Date(date)).toLocaleDateString('fr-FR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
-            const orders = fetch('/api/orders')
+            fetch('/api/orders')
                 .then(response => response.json())
                 .then(({ data }) => data.map(({ attributes }) => attributes))
                 .then(orders => {
@@ -55,8 +55,8 @@
                         const color = order.Progress < 50 ? 'bg-gray-600' : order.Progress === 100 ? 'bg-green-600' : 'bg-[#ad8d4d]';
                         row.innerHTML = `
                             <td class="whitespace-nowrap py-2 pl-4 pr-4 text-sm font-medium text-gray-900 sm:pl-0">${order.OrderID}</td>
-                            <td class="whitespace-nowrap p-2 text-sm text-gray-500">${order.Name}</td>
-                            <td class="whitespace-nowrap p-2 text-sm text-gray-500">${frenchDate(order.EstimateDate)}</td>
+                            <td class="whitespace-nowrap p-2 text-sm text-gray-500 hidden sm:table-cell">${order.Name}</td>
+                            <td class="whitespace-nowrap p-2 text-sm text-gray-500 hidden sm:table-cell">${frenchDate(order.EstimateDate)}</td>
                             <td class="whitespace-nowrap py-2 pl-4 pr-4 text-sm text-gray-500 sm:pr-0">
                                 <div class="w-full bg-gray-200 rounded-md mt-2">
                                   <div
