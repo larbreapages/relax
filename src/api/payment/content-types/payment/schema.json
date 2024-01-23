@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payments",
+  "info": {
+    "singularName": "payment",
+    "pluralName": "payments",
+    "displayName": "Payment"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Amount": {
+      "type": "decimal"
+    },
+    "Date": {
+      "type": "datetime"
+    },
+    "Deposit": {
+      "type": "boolean"
+    },
+    "Order": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::order.order"
+    }
+  }
+}

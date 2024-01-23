@@ -837,6 +837,43 @@ export interface ApiOrderOrder extends Schema.CollectionType {
   };
 }
 
+export interface ApiPaymentPayment extends Schema.CollectionType {
+  collectionName: 'payments';
+  info: {
+    singularName: 'payment';
+    pluralName: 'payments';
+    displayName: 'Payment';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Amount: Attribute.Decimal;
+    Date: Attribute.DateTime;
+    Deposit: Attribute.Boolean;
+    Order: Attribute.Relation<
+      'api::payment.payment',
+      'oneToOne',
+      'api::order.order'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::payment.payment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::payment.payment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -857,6 +894,7 @@ declare module '@strapi/types' {
       'plugin::i18n.locale': PluginI18NLocale;
       'api::expense.expense': ApiExpenseExpense;
       'api::order.order': ApiOrderOrder;
+      'api::payment.payment': ApiPaymentPayment;
     }
   }
 }
