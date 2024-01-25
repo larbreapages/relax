@@ -21,3 +21,7 @@ jobs:
         run: |
           docker build -t ghcr.io/larbreapages/relax .
           docker push ghcr.io/larbreapages/relax
+
+      - name: Deploy
+        run: |
+          curl -X POST https://portainer.larbreapages.fr/api/webhooks/a0ba62bf-6343-4161-893e-fd96b97a772f
