@@ -816,7 +816,7 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     Name: Attribute.String;
     OrderID: Attribute.String;
     EstimateDate: Attribute.DateTime;
-    Progress: Attribute.Integer;
+    Progress: Attribute.Integer & Attribute.DefaultTo<0>;
     ClientName: Attribute.String;
     Note: Attribute.String;
     createdAt: Attribute.DateTime;

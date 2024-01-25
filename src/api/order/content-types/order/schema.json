@@ -22,7 +22,8 @@
       "type": "datetime"
     },
     "Progress": {
-      "type": "integer"
+      "type": "integer",
+      "default": 0
     },
     "ClientName": {
       "type": "string"
