@@ -68,7 +68,7 @@
             const updateOrders = (orders) => {
                 document.getElementById('loading').remove();
 
-                orders.forEach(order => {
+                orders.sort((a, b) => new Date(a.EstimateDate) - new Date(b.EstimateDate)).forEach(order => {
                   const row = document.createElement('tr');
                   const color = order.Progress < 50 ? 'bg-gray-600' : order.Progress === 100 ? 'bg-green-600' : 'bg-[#ad8d4d]';
                   row.innerHTML = `
