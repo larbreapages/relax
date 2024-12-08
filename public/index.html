@@ -49,6 +49,7 @@
         </div>
 
         <script>
+            const ORDERS_LIMIT = 50;
             const table = document.querySelector('table tbody');
 
             const frenchDate = (date) => (new Date(date)).toLocaleDateString('fr-FR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
@@ -94,7 +95,7 @@
             };
 
             const run = (retry = 0) => {
-              fetch('/api/orders')
+              fetch(`/api/orders?pagination[pageSize]=${ORDERS_LIMIT}`)
                 .then(response => response.json())
                 .then(({ data }) => data.map(({ attributes }) => attributes))
                 .then(orders => updateOrders(orders))
